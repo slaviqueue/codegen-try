@@ -17,8 +17,8 @@ data Node
 toString :: Node -> String
 toString (Program body) = intercalate "\n" $ map toString body
 toString (Sum left right) = unwords [toString left, "+" , toString right]
-toString (Number integer) = unwords [show integer]
-toString (Id identifier) = unwords [identifier]
+toString (Number integer) = show integer
+toString (Id identifier) = identifier
 toString (FnCall ident args) = unwords [toString ident, "(", toString args, ")"]
 toString (Args args) = intercalate ", " $ map toString args
 toString (Params params) = intercalate ", " params
